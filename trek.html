@@ -1,0 +1,23 @@
+<html>
+<head>
+<meta charset="utf-8">
+<title>Анализ GPX трека</title>
+</head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js" integrity="sha512-SIMGYRUjwY8+gKg7nn9EItdD8LCADSDfJNutF9TPrvEo86sQmFMh6MyralfIyhADlajSxqc7G0gs7+MwWF/ogQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<!-- <script src="chart.umd.js"></script> -->
+<script src="haversine.js"></script>
+<body>
+<div>GPX трек: <input type="file" id="dataset"/></div> <!--style="display:none"-->
+<div><label>Каждую<input type="number" required min="1" max="1000" value="1" id="decimator"/>точку</label></div>
+<canvas id="trekChart" style="width:100%;max-width:600px;max-height:600px;aspect-ratio:1/1;"></canvas>
+<p id="idxGini">
+Расчёт коэффициента Джини по формуле: <br/>
+Gi = ( Xi - Xi1 ) * ( Yi + Yi1 ) * 0.5 <br/>
+G = 1 - 2*SUM( Gi ) <br/>
+Xi - время в i-й точке <br/>
+Yi - расстояние в i-й точке<br/>
+</p>
+<!-- https://www.codecamp.ru/blog/gini-coefficient-excel/ -->
+<script src="trek.js"></script>
+</body>
+</html>
